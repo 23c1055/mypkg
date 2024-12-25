@@ -10,7 +10,7 @@ class Listener(Node):
     def cb(self):
         msg = Int16()
         msg.data = self.n
-        self.node.get_logger().info("Listen: %d" % msg.data)
+        self.get_logger().info("Listen: %d" % msg.data)
 
 def main():
     rclpy.init()
