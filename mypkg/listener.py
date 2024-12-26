@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from person_msgs.srv import Query
+from std_msgs.msg import Int16
 
 class Listener(Node):
     def __init__(self):
