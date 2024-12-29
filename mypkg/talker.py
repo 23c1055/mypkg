@@ -8,7 +8,7 @@ class Talker(Node):
         self.pub = self.create_publisher(Int16, "countup", 10)
         self.create_timer(1.0, self.cb)
         self.number = 2
-        
+
     def cb(self):
         while not self.is_prime(self.number):
             self.number += 1
