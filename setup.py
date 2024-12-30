@@ -14,7 +14,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name), glob('launch/*.launch.py'))
     ],
-    pip_install_requires=['setuptools'],
+    install_requires=['setuptools'],
     zip_safe=True,
     maintainer='d23c1055',
     maintainer_email='s23c1055ky@s.chibaoudai.jp',
