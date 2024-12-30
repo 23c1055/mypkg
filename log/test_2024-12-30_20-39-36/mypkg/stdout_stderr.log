@@ -1,0 +1,31 @@
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.8.10, pytest-4.6.9, py-1.8.1, pluggy-0.13.0
+cachedir: build/mypkg/.pytest_cache
+rootdir: /home/d23c1055/ros2_ws/src/mypkg
+plugins: launch-testing-0.10.10, ament-flake8-0.9.8, ament-copyright-0.9.8, ament-pep257-0.9.8, ament-xmllint-0.9.8, ament-lint-0.9.8, launch-testing-ros-0.11.7, colcon-core-0.18.3, cov-2.8.1
+[1mcollecting ... [0m[1m
+collected 3 items                                                              [0m
+
+test/test_copyright.py [31mF[0m[36m                                                 [ 33%][0m
+test/test_flake8.py [32m.[0m[36m                                                    [ 66%][0m
+test/test_pep257.py [32m.[0m[36m                                                    [100%][0m
+
+=================================== FAILURES ===================================
+[31m[1m________________________________ test_copyright ________________________________[0m
+[1m[31mtest/test_copyright.py[0m:23: in test_copyright
+[1m    assert rc == 0, 'Found errors'[0m
+[1m[31mE   AssertionError: Found errors[0m
+[33m=============================== warnings summary ===============================[0m
+/usr/lib/python3/dist-packages/pydocstyle/config.py:6
+  Warning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+
+-- Docs: https://docs.pytest.org/en/latest/warnings.html
+[1m[31mE   assert 1 == 0[0m
+----------------------------- Captured stderr call -----------------------------
+CONTRIBUTING.md: file not found
+LICENSE: <unknown>
+launch/talk_listen.launch.py: could not find copyright notice
+mypkg/prime.py: could not find copyright notice
+4 errors, checked 8 files
+- generated xml file: /home/d23c1055/ros2_ws/src/mypkg/build/mypkg/pytest.xml --
+[31m[1m================ 1 failed, 2 passed, 1 warnings in 0.30 seconds ================[0m

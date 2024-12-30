@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="Capybara" name="pytest" skipped="0" tests="3" time="0.299" timestamp="2024-12-30T20:39:37.847637"><testcase classname="mypkg.test.test_copyright" file="test/test_copyright.py" line="18" name="test_copyright" time="0.026"><failure message="AssertionError: Found errors
+assert 1 == 0">test/test_copyright.py:23: in test_copyright
+    assert rc == 0, &apos;Found errors&apos;
+E   AssertionError: Found errors
+E   assert 1 == 0</failure><system-err>CONTRIBUTING.md: file not found
+LICENSE: &lt;unknown&gt;
+launch/talk_listen.launch.py: could not find copyright notice
+mypkg/prime.py: could not find copyright notice
+4 errors, checked 8 files
+</system-err></testcase><testcase classname="mypkg.test.test_flake8" file="test/test_flake8.py" line="18" name="test_flake8" time="0.125"><system-out>
+7 files checked
+No problems found
+
+Checked files:
+
+* ./setup.py
+* ./test/test_flake8.py
+* ./test/test_copyright.py
+* ./test/test_pep257.py
+* ./mypkg/prime.py
+* ./mypkg/__init__.py
+* ./launch/talk_listen.launch.py
+</system-out></testcase><testcase classname="mypkg.test.test_pep257" file="test/test_pep257.py" line="18" name="test_pep257" time="0.015"><system-out>checking ./launch/talk_listen.launch.py
+checking ./mypkg/__init__.py
+checking ./mypkg/prime.py
+checking ./setup.py
+checking ./test/test_copyright.py
+checking ./test/test_flake8.py
+checking ./test/test_pep257.py
+checking test/test_copyright.py
+checking test/test_flake8.py
+checking test/test_pep257.py
+No problems found
+</system-out></testcase></testsuite></testsuites>
