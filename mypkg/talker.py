@@ -31,4 +31,10 @@ class Talker(Node):
 def main():
     rclpy.init()
     node = Talker()
-    rclpy.spin(node)
+    try:
+        rclpy.spin(node)
+    except keyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+    rclpy.shutdown()
