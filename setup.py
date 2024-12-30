@@ -14,7 +14,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name), glob('launch/*.launch.py'))
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools>=58.0.0'],
     zip_safe=True,
     maintainer='d23c1055',
     maintainer_email='s23c1055ky@s.chibakoudai.jp',
@@ -26,4 +26,7 @@ setup(
             'talker = mypkg.talker:main',
         ],
     },
+    options={
+        'bdist_wheel': {'universal': True},
+    }
 )
