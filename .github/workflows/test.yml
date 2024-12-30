@@ -6,10 +6,12 @@ jobs:
     container: ryuichiueda/ubuntu22.04-ros2:latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install updated setuptools
+        run: |
+          pip install --upgrade setuptools
       - name: build and test
         run: |
           rsync -av ./ /root/ros2_ws/src/mypkg/
           cd /root/ros2_ws
-          #bash -xv ./src/mypkg/test/test.bash /root
           bash -c './src/mypkg/test/test.bash /root || exit 1'
 
