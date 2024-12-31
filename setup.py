@@ -26,7 +26,4 @@ setup(
             'prime = mypkg.prime:main',
         ],
     },
-    options={
-        'bdist_wheel': {'universal': True},
-    }
 )
