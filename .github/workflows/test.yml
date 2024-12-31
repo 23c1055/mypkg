@@ -1,14 +1,48 @@
-name: test
-on: push
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
 jobs:
-  test:
-    runs-on: ubuntu-20.04
-    container: ryuichiueda/ubuntu22.04-ros2:latest
+  build:
+    runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: build and test
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup ROS 2
+        uses: ros-tooling/setup-ros@v0.2
+        with:
+          version: foxy
+
+      - name: Install dependencies
         run: |
-          rsync -av ./ /root/ros2_ws/src/mypkg/
-          cd /root/ros2_ws
-          bash -c './src/mypkg/test/test.bash /root || exit 1'
+          sudo apt update
+          sudo apt install -y python3-colcon-common-extensions
+
+      - name: Build the workspace
+        run: |
+          colcon build --symlink-install
+
+      - name: Test the workspace
+        run: |
+          colcon test
+          colcon test-result --all
+#name: test
+#on: push
+#jobs:
+#  test:
+#    runs-on: ubuntu-20.04
+#    container: ryuichiueda/ubuntu22.04-ros2:latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: build and test
+#        run: |
+#          rsync -av ./ /root/ros2_ws/src/mypkg/
+#          cd /root/ros2_ws
+#          bash -c './src/mypkg/test/test.bash /root || exit 1'
 
