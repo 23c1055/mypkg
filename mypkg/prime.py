@@ -13,9 +13,13 @@ class Prime(Node):
         self.current_number = 2
 
     def cb(self):
-        if self.is_prime(self.current_number):
-            self.get_logger().info(f"Prime: {self.current_number}")
-        self.current_number += 1
+        if self.current_number <= 200:
+            if self.is_prime(self.current_number):
+                self.get_logger().info(f"Prime: {self.current_number}")
+            self.current_number += 1
+        else:
+            self.get_logger().info("Completed finding primes up to 200.")
+            self.get_clock().cancel_timer(self.timer)
 
     def is_prime(self, number):
         if number < 2:
