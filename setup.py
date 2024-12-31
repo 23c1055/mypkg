@@ -23,7 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'prime = mypkg.prime:lesson10',
+            'prime = mypkg.prime:main',
         ],
     },
 )
