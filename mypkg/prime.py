@@ -6,9 +6,9 @@ import rclpy
 from rclpy.node import Node
 
 
-class Talker(Node):
+class Prime(Node):
     def __init__(self):
-        super().__init__("talker")
+        super().__init__("prime")
         self.create_timer(1.0, self.cb)
         self.current_number = 2
 
@@ -29,5 +29,5 @@ class Talker(Node):
 
 def main():
     rclpy.init()
-    node = Talker()
+    node = Prime()
     rclpy.spin(node)
