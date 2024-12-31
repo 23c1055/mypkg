@@ -17,7 +17,6 @@ class Prime(Node):
             self.get_logger().info(f"Prime: {self.current_number}")
         self.current_number += 1
 
-
     def is_prime(self, number):
         if number < 2:
             return False
@@ -37,7 +36,7 @@ def main():
     finally:
         node.destroy_node()
         if rclpy.ok():
-        rclpy.shutdown()
+            rclpy.shutdown()
 
-if __name__ == " __main__":
+if __name__ == "__main__":
     main()
