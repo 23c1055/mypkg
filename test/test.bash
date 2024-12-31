@@ -8,5 +8,5 @@ colcon build
 source $dir/.bashrc
 timeout 10 ros2 launch mypkg prime.launch.py > /tmp/mypkg.log
 
-#cat /tmp/mypkg.log |
+cat /tmp/mypkg.log |
 #grep 'Listen: 10'
