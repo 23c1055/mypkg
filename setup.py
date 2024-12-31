@@ -14,7 +14,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name), glob('launch/*.launch.py'))
     ],
-    install_requires=['setuptools>=58.0.0'],
+    install_requires=['setuptools'],
     zip_safe=True,
     maintainer='d23c1055',
     maintainer_email='s23c1055ky@s.chibakoudai.jp',
@@ -23,7 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'talker = mypkg.talker:main',
+            'prime = mypkg.prime:main',
         ],
     },
     options={
