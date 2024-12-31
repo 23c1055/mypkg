@@ -1,60 +1,13 @@
-name: CI
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-
+name: test
+on: push
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  test:
+    runs-on: ubuntu-20.04
+    container: ryuichiueda/ubuntu22.04-ros2:latest
     steps:
-      # コードをチェックアウト
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # ROS 2 環境のセットアップ (Foxy)
-      - name: Setup ROS 2
-        uses: ros-tooling/setup-ros@v0.2
-        with:
-          version: foxy
-
-      # 依存関係をインストール
-      - name: Install dependencies
+      - uses: actions/checkout@v2
+      - name: build and test
         run: |
-          sudo apt update
-          sudo apt install -y python3-colcon-common-extensions python3-pip
-          python3 -m pip install --upgrade pip setuptools
-
-      # パッケージをインストール (setup.py install を回避)
-      - name: Install the package
-        run: |
-          pip install .
-
-      # ワークスペースをビルド
-      - name: Build the workspace
-        run: |
-          colcon build --symlink-install
-
-      # テストを実行
-      - name: Run tests
-        run: |
-          colcon test
-          colcon test-result --all
-
-#name: test
-#on: push
-#jobs:
-#  test:
-#    runs-on: ubuntu-20.04
-#    container: ryuichiueda/ubuntu22.04-ros2:latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: build and test
-#        run: |
-#          rsync -av ./ /root/ros2_ws/src/mypkg/
-#          cd /root/ros2_ws
-#          bash -c './src/mypkg/test/test.bash /root || exit 1'
-
+          rsync -av ./ /root/ros2_ws/src/mypkg/
+          cd /root/ros2_ws
+          bash -c './src/mypkg/test/test.bash /root || exit 1'
