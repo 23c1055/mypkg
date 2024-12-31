@@ -4,7 +4,7 @@
   <name>mypkg</name>
   <version>0.0.0</version>
   <description>for practice</description>
-  <maintainer email="s23c1055ky@s.chibaoudai.jp">d23c1055</maintainer>
+  <maintainer email="s23c1055ky@s.chibaoudai.jp">23c1055</maintainer>
   <license>BSD-3-Clause</license>
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
