@@ -13,10 +13,10 @@ class Prime(Node):
         self.current_number = 2
 
     def cb(self):
-        while not self.is_prime(self.current_number):
-            self.current_number += 1
-        self.get_logger().info(f"Prime: {self.current_number}")
+        if self.is_prime(self.current_number):
+            self.get_logger().info(f"Prime: {self.current_number}")
         self.current_number += 1
+
 
     def is_prime(self, number):
         if number < 2:
@@ -30,4 +30,9 @@ class Prime(Node):
 def main():
     rclpy.init()
     node = Prime()
-    rclpy.spin(node)
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        rclpy.shutdown()
