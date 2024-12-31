@@ -32,7 +32,12 @@ def main():
     node = Prime()
     try:
         rclpy.spin(node)
-    except KeyboardInterrupt:
+    except rclpy.executors.ExternalShutdownException:
         pass
     finally:
+        node.destroy_node()
+        if rclpy.ok():
         rclpy.shutdown()
+
+if __name__ == " __main__":
+    main()
