@@ -1,19 +1,18 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int16
 
 class Prime(Node):
     def __init__(self):
         super().__init__("prime")
         self.pub = self.create_publisher(Int16, "countup", 10)
         self.create_timer = create_timer(1.0, self.cb)
-        self.number = 2
+        self.n = 0
 
     def cb(self):
-        while not self.prime(self.number):
-            self.number += 1
-        self.pub.publish(Int16(data=self.number))
-        self.number += 1
+        while not self.prime(self.n):
+            self.n += 1
+        self.pub.publish(Int16(data=self.n))
+        self.n += 1
 
 
     def is_prime(self, number):
