@@ -1,6 +1,3 @@
-#!/usr/bin/python3
-# SPDX-FileCopyrightText: 2024 Goto Shingo
-# SPDX-License-Identifier: BSD-3-Clause
 import launch
 import launch.actions
 import launch.substitution
@@ -13,6 +10,6 @@ def generate_launch_description():
         package='mypkg',
         executable='prime',
         output='screen'
-    )
+        )
         
     return launch.LaunchDescription([prime])
