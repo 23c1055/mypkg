@@ -1,20 +1,20 @@
 import rclpy
 from rclpy.node import Node
+from std_msgs.msg import Int16
 
 class Prime(Node):
     def __init__(self):
         super().__init__("prime")
-        self._timer = self.create_timer(1.0, self.cb)
-        self._current_number = 2
+        self.pub = self.create_publisher(Int16, "countup", 10)
+        self.create_timer = create_timer(1.0, self.cb)
+        self.number = 2
 
     def cb(self):
-        if self._current_number <= 200:
-            if self.is_prime(self._current_number):
-                self.get_logger().info(f"Prime: {self._current_number}")
-            self._current_number += 1
-        else:
-            self.get_logger().info("Completed finding primes up to 200.")
-            self._timer.cancel()
+        while not self.prime(self.number):
+            self.number += 1
+        self.pub.publish(Int16(data=self.number))
+        self.number += 1
+
 
     def is_prime(self, number):
         if number < 2:
