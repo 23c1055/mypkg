@@ -15,7 +15,7 @@ class Prime(Node):
             msg = Int16()
             msg.data = self.n
             self.pub.publish(msg)
-            self.get_logger().info(f"published prime: {self.n}")
+            self.get_logger().info(f"prime: {self.n}")
         self.n += 1
 
     def is_prime(self, number):
