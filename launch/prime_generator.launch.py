@@ -6,10 +6,10 @@ import launch_ros.actions
 
 def generate_launch_description():
 
-    prime_generator = launch_ros.actions.Node(
+    prime = launch_ros.actions.Node(
         package='mypkg',
-        executable='prime_generator',
+        executable='prime',
         output='screen'
         )
         
-    return launch.LaunchDescription([prime_generator])
+    return launch.LaunchDescription([prime])
