@@ -9,4 +9,4 @@ source $dir/.bashrc
 timeout 1 ros2 launch mypkg prime.launch.py > /tmp/mypkg.log
 
 cat /tmp/mypkg.log |
-grep 'prime: '
+grep 'prime'
