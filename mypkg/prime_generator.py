@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Int16
-
+　
 
 class Prime(Node):
     def __init__(self):
