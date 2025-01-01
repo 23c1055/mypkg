@@ -1,7 +1,6 @@
 import rclpy
 from rclpy.node import Node
 
-
 class Prime(Node):
     def __init__(self):
         super().__init__("prime")
@@ -15,7 +14,7 @@ class Prime(Node):
             self._current_number += 1
         else:
             self.get_logger().info("Completed finding primes up to 200.")
-            self._timer.cancel()  # タイマーを停止
+            self._timer.cancel()
 
     def is_prime(self, number):
         if number < 2:
@@ -24,7 +23,6 @@ class Prime(Node):
             if number % i == 0:
                 return False
         return True
-
 
 def main():
     rclpy.init()
@@ -37,7 +35,6 @@ def main():
         node.destroy_node()
         if rclpy.ok():
             rclpy.shutdown()
-
 
 if __name__ == "__main__":
     main()
