@@ -1,4 +1,4 @@
-# 素数の送受信
+# Prime_generator
 
 ![status](https://github.com/23c1055/task/actions/workflows/test.yml/badge.svg)
 ![ubuntu](https://img.shields.io/badge/Ubuntu_20.04-orange)
@@ -16,3 +16,18 @@
 ## 概要
 
 - 2をはじめとする素数を1秒毎に昇順で表示します。
+
+## 使用方法
+
+- 以下の手順でプロジェクトをローカルレポジトリへのクローンとダウンロードをしてください。
+
+'''bash
+
+'''
+
+## ライセンス
+
+- このスフとウェアパッケージは3条項BSDライセンスの下、再頒布および使用が許可されています。
+
+©2025 Goto Shingo
+
