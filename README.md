@@ -1,7 +1,7 @@
 # Prime_generator
 
 ![status](https://github.com/23c1055/task/actions/workflows/test.yml/badge.svg)
-![ubuntu](https://img.shields.io/badge/Ubuntu_20.04-orange)
+![ubuntu](https://img.shields.io/badge/Ubuntu_22.04-orange)
 <img src="https://img.shields.io/badge/-Python-F9DC3E.svg?logo=python">
 
 ## 必要なソフトウェア
