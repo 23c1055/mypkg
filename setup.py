@@ -16,9 +16,9 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='d23c1055',
+    maintainer='23c1055',
     maintainer_email='s23c1055ky@s.chibakoudai.jp',
-    description='for practice',
+    description='a package for practice',
     license='BSD-3-Clause',
     tests_require=['pytest'],
     entry_points={
