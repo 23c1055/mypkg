@@ -18,7 +18,7 @@ class Prime(Node):
             msg = Int16()
             msg.data = self.primes[self.index]
             self.pub.publish(msg)
-            self.get_logger().info(f"prime: {self.primes[self.index]}")
+            self.get_logger().info(f"published prime: {self.primes[self.index]}")
             self.index += 1
 
     def generate_primes(self, limit):
