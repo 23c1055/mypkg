@@ -30,6 +30,7 @@ $ cd pkgs
 
 権限の付与
 $ chmod +x prime_generator.py
+
 '''
 
 
