@@ -7,7 +7,7 @@ from std_msgs.msg import Int16
 
 class Prime(Node):
     def __init__(self):
-        super().__init__("prime_generator")
+        super().__init__("published prime")
         self.pub = self.create_publisher(Int16, "countup", 10)
         self.timer = self.create_timer(1.0, self.cb)
         self.primes = self.generate_primes(10000)
