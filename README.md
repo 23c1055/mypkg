@@ -23,7 +23,7 @@
 
 '''bash
 リポジトリをクローン
-$ git clone
+$ git clone https://github.com/23c1055/pkgs.git
 
 ディレクトリに移動
 $ cd pkgs
@@ -31,6 +31,22 @@ $ cd pkgs
 権限の付与
 $ chmod +x prime_generator.py
 '''
+
+
+
+## 実行例と実行結果
+
+実行例
+$ ros2 run mypkg prime_generator
+
+実行結果
+$[INFO] [1735827869.098587044] [published_prime]: 2
+$[INFO] [1735827870.076844307] [published_prime]: 3
+$[INFO] [1735827871.076998369] [published_prime]: 5
+$[INFO] [1735827872.077272675] [published_prime]: 7
+$[INFO] [1735827873.076894356] [published_prime]: 11
+$[INFO] [1735827874.077199469] [published_prime]: 13
+
 
 ## ライセンス
 
