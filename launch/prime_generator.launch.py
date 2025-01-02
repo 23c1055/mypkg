@@ -15,4 +15,4 @@ def generate_launch_description():
         output='screen'
         )
         
-    return launch.LaunchDescription([prime])
+    return launch.LaunchDescription([published prime])
