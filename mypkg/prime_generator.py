@@ -10,13 +10,13 @@ class Prime(Node):
         self.primes = self.generate_primes(10000)
         self.index = 0
 
-    def cd(self):
+    def cb(self):
         if self.index < len(self.primes):
             msg = Int16()
             msg.data = self.primes[self.index]
             self.pub.publish(msg)
             self.get_logger().info(f"prime: {self.primes[self.index]}")
-            self.index +=1
+            self.index += 1
 
     def generate_primes(self, limit):
         sieve = [True] * (limit + 1)
