@@ -11,8 +11,8 @@ def generate_launch_description():
 
     prime = launch_ros.actions.Node(
         package='mypkg',
-        executable='published prime',
+        executable='prime',
         output='screen'
         )
         
-    return launch.LaunchDescription([published prime])
+    return launch.LaunchDescription([prime])
