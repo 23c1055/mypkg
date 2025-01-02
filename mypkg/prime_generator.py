@@ -7,24 +7,25 @@ class Prime(Node):
         super().__init__("prime")
         self.pub = self.create_publisher(Int16, "countup", 10)
         self.timer = self.create_timer(1.0, self.cb)
-        self.n = 2
+        self.primes = self.generate_primes(10000)
+        self.index = 0
 
-    def cb(self):
-        if self.is_prime(self.n):
+    def cd(self):
+        if self.index < len(self.primes):
             msg = Int16()
-            msg.data = self.n
+            msg.data = self.primes[self.index]
             self.pub.publish(msg)
-            self.get_logger().info(f"prime: {self.n}")
-        self.n += 1
+            self.get_logger().info(f"prime: {self.primes[self.index]}")
+            self.index +=1
 
-    def is_prime(self, number):
-        if number < 2:
-            return False
-        for i in range(2, int(number**0.5) + 1):
-            if number % i == 0:
-                return False
-        return True
-
+    def generate_primes(self, limit):
+        sieve = [True] * (limit + 1)
+        sieve[0] = sieve[1] = False
+        for i in range(2, int(limit**0.5) + 1):
+            if sieve[i]:
+                for j in range(i * i, limit + 1, i):
+                    sieve[j] = False
+        return [i for i, is_prime in enumerate(sieve) if is_prime]
 
 def main():
     rclpy.init()
@@ -35,9 +36,8 @@ def main():
         pass
     finally:
         node.destroy_node()
-        if rclpy.ok():
+        if rclpy.ok()
             rclpy.shutdown()
-
 
 if __name__ == "__main__":
     main()
