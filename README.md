@@ -2,10 +2,11 @@
 
 ![status](https://github.com/23c1055/task/actions/workflows/test.yml/badge.svg)
 
-## 必要なソフトウェア
+## 必要なソフトウェア・ミドルウェア
 - python
 
     - テスト済み: 3.7 ~ 3.11
+- ROS2
 
 ## テスト環境
 
