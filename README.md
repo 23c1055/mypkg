@@ -19,15 +19,12 @@
 
 - 以下の手順でプロジェクトをローカルレポジトリへのクローンとダウンロードをしてください。
 
-```bash
-リポジトリをクローン
+
+リポジトリをクローン```bash
 $ git clone https://github.com/23c1055/pkgs.git
 
 ディレクトリに移動
 $ cd pkgs
-
-権限の付与
-$ chmod +x prime_generator.py
 ```
 
 
