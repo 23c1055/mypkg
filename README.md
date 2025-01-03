@@ -32,11 +32,14 @@ $ cd pkgs
 
 
 ## 実行例と実行結果
-```bash
+
 実行例
+```bash
 $ ros2 run mypkg prime_generator
+```
 
 実行結果
+```bash
 $[INFO] [1735827869.098587044] [published_prime]: 2
 $[INFO] [1735827870.076844307] [published_prime]: 3
 $[INFO] [1735827871.076998369] [published_prime]: 5
