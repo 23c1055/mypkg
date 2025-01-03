@@ -1,4 +1,4 @@
-# Prime number Publisher
+# Prime Number Generator
 
 ![status](https://github.com/23c1055/task/actions/workflows/test.yml/badge.svg)
 
