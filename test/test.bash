@@ -2,12 +2,11 @@
 # SPDX-FileCopyrightText: 2025 Goto Shingo
 # SPDX-License-Identifier: BSD-3-Clause
 
-set -e  # スクリプト内でエラーが発生したら即終了
+set -e
 
-dir=~  # デフォルトのディレクトリをホームディレクトリに設定
-[ "$1" != "" ] && dir="$1"  # 引数があればディレクトリを上書き
+dir=~
+[ "$1" != "" ] && dir="$1"
 
-# ROS 2ワークスペースのセットアップ
 cd $dir/ros2_ws
 colcon build
 source $dir/install/setup.bash
