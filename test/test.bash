@@ -7,7 +7,7 @@ dir=~
 [ "$1" != "" ] && dir="$1"
 cd $dir/ros2_ws
 colcon build
-source install/setup.py
+source $dir/.bashrc
 echo "Launching ROS 2 node..."
 timeout 5 ros2 launch mypkg prime_checker.launch.py &
 launch_pid=$!  
