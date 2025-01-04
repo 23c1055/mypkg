@@ -1,9 +1,9 @@
-# Prime Number Generator
+# Prime Checker
 
 ![status](https://github.com/23c1055/task/actions/workflows/test.yml/badge.svg)
 ## 概要
 
-- このレポジトリはROS2のパッケージであり、2から始まる素数を1秒ごとに昇順でパブリッシュし、ログに出力します。
+- このレポジトリは、ROS 2のパッケージです。このノードは、2から始まる昇順の素数を1秒ごとにパブリッシュし、各数字に対して素数かどうかの判定結果（〇または×）をログに出力します。
 
 ## 必要なソフトウェア・ミドルウェア
 - python
