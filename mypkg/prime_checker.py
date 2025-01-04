@@ -22,7 +22,7 @@ class Prime_Checker(Node):
         msg.data = str(self.count)
         self.pub.publish(msg)
 
-        prime_status = '〇' if self.is_prime(self.count) else '×'
+        prime_status = '○' if self.is_prime(self.count) else '×'
         
         self.get_logger().info(f"{self.count} {prime_status}")
         self.count += 1
