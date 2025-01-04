@@ -1,6 +1,9 @@
 # Prime Number Generator
 
 ![status](https://github.com/23c1055/task/actions/workflows/test.yml/badge.svg)
+## 概要
+
+- このレポジトリはROS2のパッケージであり、2から始まる素数を1秒ごとに昇順でパブリッシュし、ログに出力します。
 
 ## 必要なソフトウェア・ミドルウェア
 - python
@@ -12,9 +15,6 @@
 
  - Ubuntu 22.04.5 LTS
 
-## 概要
-
-- このレポジトリはROS2のパッケージであり、2から始まる素数を1秒ごとに昇順でパブリッシュし、ログに出力します。
 
 ## 使用方法
 
