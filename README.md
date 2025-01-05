@@ -29,9 +29,13 @@ $ git clone https://github.com/23c1055/pkgs.git
 ```bash
 $ cd pkgs
 ```
-実行例
+端末1で次を入力
 ```bash
 $ ros2 run mypkg prime_generator
+```
+別端末（以降は端末2と呼ぶ）に移動し、以下を入力
+```bash
+$ topic echo /countup
 ```
 
 ### 実行結果
