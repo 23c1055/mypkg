@@ -11,7 +11,7 @@ cd $dir/ros2_ws
 colcon build
 source $dir/install/setup.bash
 echo "Launching ROS 2 node..."
-timeout 10 ros2 launch mypkg prime_checker.launch.py &
+timeout 10 ros2 launch mypkg prime_generator.launch.py &
 launch_pid=$!
 
 
