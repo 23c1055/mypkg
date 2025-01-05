@@ -2,43 +2,39 @@
 # SPDX-FileCopyrightText: 2025 Goto Shingo
 # SPDX-License-Identifier: BSD-3-Clause
 
-set -e
+set -e 
+ROS2_WS=~/ros2_ws
+echo "Launching Prime_Generator node..."
+cd $ROS2_WS
+source install/setup.bash
+ros2 run mypkg prime_generator &  
+NODE_PID=$!
 
-dir=~
-[ "$1" != "" ] && dir="$1"
+echo "Waiting for the node to start..."
+sleep 8
 
-cd $dir/ros2_ws
-colcon build
-source $dir/install/setup.bash
-echo "Launching ROS 2 node..."
-timeout 10 ros2 launch mypkg prime_generator.launch.py &
-launch_pid=$!
+echo "Subscribing to the /countup topic..."
+output=$(timeout 5 ros2 topic echo /countup --once)
 
-
-sleep 2
-
-
-echo "Checking the /prime_check topic for valid messages..."
-output=$(timeout 5 ros2 topic echo /prime_check --once)
-
-expected_outputs=("1 ×" "2 ○" "3 ○" "4 ×" "5 ○")
-
+expected_primes=(2 3 5 7 11)
 success=true
-for expected in "${expected_outputs[@]}"; do
-    if [[ "$output" == *"$expected"* ]]; then
-        echo "Found expected output: $expected"
+
+for prime in "${expected_primes[@]}"; do
+    if [[ "$output" == *"$prime"* ]]; then
+        echo "Found expected prime: $prime"
     else
-        echo "Error: Expected output '$expected' not found in topic output"
+        echo "Error: Expected prime $prime not found in topic output"
         success=false
     fi
 done
 
-kill $launch_pid || true
+echo "Stopping the Prime_Generator node..."
+kill $NODE_PID || true
 
 if $success; then
-    echo "All expected outputs were found. Test passed!"
+    echo "All expected primes were found. Test passed!"
     exit 0
 else
-    echo "Some expected outputs were missing. Test failed!"
+    echo "Some expected primes were missing. Test failed!"
     exit 1
 fi
