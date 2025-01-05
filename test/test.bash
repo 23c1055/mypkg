@@ -21,7 +21,7 @@ sleep 2
 echo "Checking the /prime_check topic for valid messages..."
 output=$(timeout 5 ros2 topic echo /prime_check --once)
 
-expected_outputs=("1×" "2〇" "3〇" "4×" "5〇")
+expected_outputs=("1 ×" "2 ○" "3 ○" "4 ×" "5 ○")
 
 success=true
 for expected in "${expected_outputs[@]}"; do
