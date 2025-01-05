@@ -11,7 +11,7 @@ class Prime_Generator(Node):
         super().__init__("prime_publisher")
         self.publisher = self.create_publisher(Int16, "countup", 10)
         time.sleep(5)
-        self.timer = self.create_timer(1.0, self.publish_prime) 
+        self.timer = self.create_timer(1.0, self.publish_prime)
         self.primes = self.generate_primes(10000)
         self.index = 0
 
