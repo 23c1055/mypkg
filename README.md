@@ -41,12 +41,28 @@ $ topic echo /countup
 ### 実行結果
 端末2で以下の様に出力されます
 ```bash
-$[INFO] [1735827869.098587044] [published_prime]: 2
-$[INFO] [1735827870.076844307] [published_prime]: 3
-$[INFO] [1735827871.076998369] [published_prime]: 5
-$[INFO] [1735827872.077272675] [published_prime]: 7
-$[INFO] [1735827873.076894356] [published_prime]: 11
-$[INFO] [1735827874.077199469] [published_prime]: 13
+data: 2
+---
+data: 3
+---
+data: 5
+---
+data: 7
+---
+data: 11
+---
+data: 13
+---
+data: 17
+---
+data: 19
+---
+data: 23
+---
+data: 29
+---
+data: 31
+---
 ```
 
 ## ライセンス
