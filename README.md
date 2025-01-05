@@ -36,7 +36,7 @@ $ ros2 run mypkg prime_generator
 $ topic echo /countup
 ```
 
-### 実行結果
+## 実行結果
 端末2で以下の様に出力されます
 ```bash
 data: 2
