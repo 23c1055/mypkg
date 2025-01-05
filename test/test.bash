@@ -1,51 +1,46 @@
 #!/bin/bash
-# SPDX-FileCopyrightText: 2025 Goto Shingo
+# SPDX-FileCopyrightText: 2025 Riku Kinjo
 # SPDX-License-Identifier: BSD-3-Clause
 
-set -e  # スクリプトエラー時に終了
+dir=~  # デフォルトの作業ディレクトリ
+[ "$1" != "" ] && dir="$1"  # 引数で指定された場合はそのディレクトリを使用
 
-# ROS2ワークスペースのパスを指定（必要に応じて変更）
-ROS2_WS=~/ros2_ws
+ng () {
+    echo "${1}行目に問題有"
+    res=1
+}
 
-# ROS 2環境をセットアップ
-source /opt/ros/humble/setup.bash  # 使用中のROS 2ディストリビューション名に変更
-source $ROS2_WS/install/setup.bash
+res=0  # テスト結果フラグ
 
-# Prime_Generatorノードを起動
-echo "Launching Prime_Generator node..."
-ros2 run mypkg prime_generator &  # バックグラウンドでノードを実行
+cd $dir/ros2_ws || exit 1
+colcon build || exit 1  # ビルド失敗で終了
+source $dir/.bashrc || exit 1
+timeout 15 ros2 run mypkg prime_generator > /tmp/prime_generator.log &  
 NODE_PID=$!
 
-# ノードが起動するのを待機（Prime_Generator内に5秒遅延があるため、少し長めに待つ）
-echo "Waiting for the node to start..."
-sleep 10
 
-# トピックを購読して結果を確認
-echo "Subscribing to the /countup topic..."
-output=$(timeout 10 ros2 topic echo /countup --once)
+timeout 11 ros2 topic echo /countup > /tmp/countup.log
+echo "[/countup topic output]"
+cat /tmp/countup.log
+echo "====================="
 
-# 期待する値を定義（初めの数個の素数）
-expected_primes=(2 3 5 7 11)
-success=true
+prime1=$(awk 'NR==1 {print $2}' /tmp/countup.log)
+prime2=$(awk 'NR==3 {print $2}' /tmp/countup.log)
+prime3=$(awk 'NR==5 {print $2}' /tmp/countup.log)
 
-for prime in "${expected_primes[@]}"; do
-    if [[ "$output" == *"$prime"* ]]; then
-        echo "Found expected prime: $prime"
-    else
-        echo "Error: Expected prime $prime not found in topic output"
-        success=false
-    fi
-done
+expected_primes=(2 3 5)
 
-# 実行中のノードを停止
-echo "Stopping the Prime_Generator node..."
+[ "${prime1}" = "${expected_primes[0]}" ] || ng "$LINENO"
+[ "${prime2}" = "${expected_primes[1]}" ] || ng "$LINENO"
+[ "${prime3}" = "${expected_primes[2]}" ] || ng "$LINENO"
+
+
 kill $NODE_PID || true
 
-# テスト結果を出力
-if $success; then
-    echo "All expected primes were found. Test passed!"
+if [ $res -eq 0 ]; then
+    echo "すべてのテストが成功しました。"
     exit 0
 else
-    echo "Some expected primes were missing. Test failed!"
+    echo "一部のテストに失敗しました。"
     exit 1
 fi
