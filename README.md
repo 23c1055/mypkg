@@ -33,7 +33,7 @@ $ ros2 run mypkg prime_generator
 ```
 端末2（上とは別の端末）に移動し、次を入力
 ```bash
-$ topic echo /countup
+$ ros2 topic echo /countup
 ```
 
 ## 実行結果
