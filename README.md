@@ -38,7 +38,6 @@ $ ros2 topic echo /countup
 ```
 
 ## 実行結果
-端末2で以下の様に素数が出力されます
 ```bash
 data: 2
 ---
