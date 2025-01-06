@@ -21,7 +21,7 @@
 
 リポジトリをクローン
 ```bash
-$ git clone https://github.com/23c1055/pkgs.git
+$ git clone https://github.com/23c1055/mypkg.git
 ```
 ディレクトリに移動
 ```bash
