@@ -2,18 +2,18 @@
 # SPDX-FileCopyrightText: 2025 Riku Kinjo
 # SPDX-License-Identifier: BSD-3-Clause
 
-dir=~  # デフォルトの作業ディレクトリ
-[ "$1" != "" ] && dir="$1"  # 引数で指定された場合はそのディレクトリを使用
+dir=~
+[ "$1" != "" ] && dir="$1"
 
 ng () {
     echo "${1}行目に問題有"
     res=1
 }
 
-res=0  # テスト結果フラグ
+res=0
 
 cd $dir/ros2_ws || exit 1
-colcon build || exit 1  # ビルド失敗で終了
+colcon build || exit 1
 source $dir/.bashrc || exit 1
 timeout 15 ros2 run mypkg prime_generator > /tmp/prime_generator.log &  
 NODE_PID=$!
