@@ -25,7 +25,7 @@ $ git clone https://github.com/23c1055/mypkg.git
 ```
 ディレクトリに移動
 ```bash
-$ cd pkgs
+$ cd mypkg
 ```
 端末1で次を入力
 ```bash
