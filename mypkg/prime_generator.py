@@ -4,21 +4,22 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Int16
+import time
 
-class Prime(Node):
+class Prime_Generator(Node):
     def __init__(self):
-        super().__init__("published_prime")
-        self.pub = self.create_publisher(Int16, "countup", 10)
-        self.timer = self.create_timer(1.0, self.cb)
+        super().__init__("prime_publisher")
+        self.publisher = self.create_publisher(Int16, "countup", 10)
+        time.sleep(5)
+        self.timer = self.create_timer(1.0, self.publish_prime)
         self.primes = self.generate_primes(10000)
         self.index = 0
 
-    def cb(self):
+    def publish_prime(self):
         if self.index < len(self.primes):
             msg = Int16()
             msg.data = self.primes[self.index]
-            self.pub.publish(msg)
-            self.get_logger().info(f"{self.primes[self.index]}")
+            self.publisher.publish(msg)
             self.index += 1
 
     def generate_primes(self, limit):
@@ -30,17 +31,19 @@ class Prime(Node):
                     sieve[j] = False
         return [i for i, is_prime in enumerate(sieve) if is_prime]
 
+
 def main():
     rclpy.init()
-    node = Prime()
+    node = Prime_Generator()
     try:
         rclpy.spin(node)
-    except rclpy.executors.ExternalShutdownException:
+    except KeyboardInterrupt:
         pass
     finally:
         node.destroy_node()
         if rclpy.ok():
             rclpy.shutdown()
+
 
 if __name__ == "__main__":
     main()
