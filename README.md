@@ -13,7 +13,7 @@
 
 - Ubuntu 22.04.5 LTS
 - Python 3.10.12
-- ROS humble
+- ROS2 humble
 
 ## 実行手順
 
